@@ -1,13 +1,15 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 
 set -Eeuo pipefail
 set -x
+
+# This is where the calling action is mounted
+GITHUB_WORKSPACE=${GITHUB_WORKSPACE:-/github/workspace}
 
 # Generates client.
 # env:
 #   [required] TARGETS : Path to your ansible role or to a playbook .yml file you want to be tested.
 #                       (e.g, './' or 'roles/my_role/' for roles or 'site.yml' for playbooks)
-
 
 ansible::prepare() {
   : "${TARGETS?No targets to check. Nothing to do.}"

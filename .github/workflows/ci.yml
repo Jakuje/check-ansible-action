@@ -1,0 +1,36 @@
+name: Ansible CI
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        os_image:
+          - fedora:latest
+          - quay.io/centos/centos:stream10
+          - ubuntu:24.04
+          - debian:11
+          - opensuse/tumbleweed:latest
+          - alpine:latest
+
+    steps:
+      - name: Checkout action code
+        uses: actions/checkout@v4
+
+      - name: Checkout SSHD role code
+        uses: actions/checkout@v4
+        with:
+          repository: willshersystems/ansible-sshd
+          path: ansible-sshd
+
+      - name: Test Ansible SSHD Role
+        # uses: roles-ansible/check-ansible-action@main
+        uses: ./
+        with:
+          image: ${{ matrix.os_image }}
+          group: local
+          hosts: localhost
+          targets: "ansible-sshd/tests/tests_*.yml"
+          requirements: ansible-sshd/tests/requirements.yml
