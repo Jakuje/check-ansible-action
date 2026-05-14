@@ -14,6 +14,7 @@ jobs:
           - ubuntu:24.04
           - debian:11
           - opensuse/tumbleweed:latest
+          - opensuse/leap:latest
           - alpine:latest
 
     steps:
