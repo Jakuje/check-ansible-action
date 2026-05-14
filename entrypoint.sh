@@ -4,7 +4,14 @@ set -e
 
 echo "Starting Ansible Check in container..."
 
-# 1. Ensure Ansible is installed (since images are dynamic, you might need a fallback)
+if [ -f /etc/redhat-release ]; then
+    if grep 8 /etc/redhat-release; then
+        # Install CentOS 8 packages from vault -- the original repos are no longer reachable after EOL
+        sed -i 's|^mirrorlist=|#mirrorlist=|' /etc/yum.repos.d/CentOS-*.repo
+        sed -i 's|^#baseurl=http://mirror.centos.org/\$contentdir/\$stream/|baseurl=https://vault.centos.org/8-stream/|' /etc/yum.repos.d/CentOS-*.repo
+    fi
+fi
+
 PACKAGES="ansible git bash"
 if ! command -v ansible > /dev/null 2>&1; then
     echo "Ansible not found. Attempting to install..."
