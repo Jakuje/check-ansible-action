@@ -24,7 +24,7 @@ if ! command -v ansible > /dev/null 2>&1; then
     elif command -v apk > /dev/null 2>&1; then
         apk add $PACKAGES
     elif command -v zypper > /dev/null 2>&1; then
-        zypper install -y $PACKAGES
+        zypper install -y $PACKAGES python3
     else
         echo "Could not detect package manager. Please use an image with Ansible pre-installed."
         exit 1
