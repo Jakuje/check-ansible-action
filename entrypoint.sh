@@ -25,6 +25,10 @@ if ! command -v ansible > /dev/null 2>&1; then
         apk add $PACKAGES
     elif command -v zypper > /dev/null 2>&1; then
         zypper install -y $PACKAGES python3
+        if grep -i leap /etc/os-release; then
+            # leap has too old python by default. Hack in the new one that comes in with ansible
+            ln -sf /usr/bin/python3.11 /usr/bin/python3
+        fi
     else
         echo "Could not detect package manager. Please use an image with Ansible pre-installed."
         exit 1
