@@ -9,6 +9,7 @@ jobs:
       matrix:
         os_image:
           - fedora:latest
+          - quay.io/centos/centos:stream8
           - quay.io/centos/centos:stream10
           - ubuntu:24.04
           - debian:11
