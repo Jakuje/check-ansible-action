@@ -26,7 +26,7 @@ jobs:
           path: ansible-sshd
 
       - name: Test Ansible SSHD Role
-        # uses: roles-ansible/check-ansible-action@main
+        # uses: Jakuje/check-ansible-action@main
         uses: ./
         with:
           image: ${{ matrix.os_image }}
