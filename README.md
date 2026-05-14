@@ -1,4 +1,4 @@
-[![MIT License](https://raw.githubusercontent.com/roles-ansible/check-ansible-action/main/.github/license.svg?sanitize=true)](https://github.com/roles-ansible/check-ansible-action/blob/main/LICENSE)
+[![MIT License](https://raw.githubusercontent.com/Jakuje/check-ansible-action/main/.github/license.svg?sanitize=true)](https://github.com/Jakuje/check-ansible-action/blob/main/LICENSE)
 
 # Check Ansible Action
 
@@ -96,5 +96,5 @@ The Dockerfile and associated scripts and documentation in this project are rele
 The initial GitHub action has been created by [Stefan Stölzle](https://github.com/stoe) at
 [stoe/actions](https://github.com/stoe/actions).<br/>
 It was used by ansible for lint checks at [ansible/ansible-lint-action](https://github.com/ansible/ansible-lint-action.git)<br/>
-It was modified from [L3D](https://github.com/do1jlr) to check ansible roles and playbooks.
+It was modified from [L3D](https://github.com/do1jlr) to check ansible roles and playbooks.<br/>
 And then generalized by [Jakub Jelen](https://github.com/Jakuje) to be more generic in regards to the container images.
