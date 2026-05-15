@@ -12,6 +12,7 @@ jobs:
           - quay.io/centos/centos:stream8
           - quay.io/centos/centos:stream10
           - ubuntu:24.04
+          - ubuntu:22.04
           - debian:11
           - opensuse/tumbleweed:latest
           - opensuse/leap:latest
