@@ -20,7 +20,10 @@ if ! command -v ansible > /dev/null 2>&1; then
     elif command -v yum > /dev/null 2>&1; then
         dnf install -y $PACKAGES
     elif command -v apt-get > /dev/null 2>&1; then
-        apt-get update && apt-get install -y $PACKAGES
+        dpkg-reconfigure --frontend=noninteractive locales
+	update-locale LANG=en_US.UTF-8
+        apt-get update
+        apt-get install -y $PACKAGES
     elif command -v apk > /dev/null 2>&1; then
         apk add $PACKAGES
     elif command -v zypper > /dev/null 2>&1; then
