@@ -20,8 +20,8 @@ if ! command -v ansible > /dev/null 2>&1; then
     elif command -v yum > /dev/null 2>&1; then
         dnf install -y $PACKAGES
     elif command -v apt-get > /dev/null 2>&1; then
-        dpkg-reconfigure --frontend=noninteractive locales
-	update-locale LANG=en_US.UTF-8
+        export DEBIAN_FRONTEND=noninteractive
+        export DEBCONF_NONINTERACTIVE_SEEN=true
         apt-get update
         apt-get install -y $PACKAGES
     elif command -v apk > /dev/null 2>&1; then
