@@ -27,8 +27,8 @@ if ! command -v ansible > /dev/null 2>&1; then
     elif command -v apk > /dev/null 2>&1; then
         apk add $PACKAGES
     elif command -v zypper > /dev/null 2>&1; then
-        zypper install -y $PACKAGES python3
-        if grep -i leap /etc/os-release; then
+        zypper install -y $PACKAGES python3 util-linux
+        if grep -i leap /etc/os-release && [ -e /usr/bin/python3.11 ]; then
             # leap has too old python by default. Hack in the new one that comes in with ansible
             ln -sf /usr/bin/python3.11 /usr/bin/python3
         fi
