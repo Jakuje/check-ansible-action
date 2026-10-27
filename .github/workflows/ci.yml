@@ -25,6 +25,21 @@ jobs:
       - name: Checkout action code
         uses: actions/checkout@v4
 
+      - name: Checkout SSH role code
+        uses: actions/checkout@v4
+        with:
+          repository: linux-system-roles/ssh
+          path: ssh
+
+      - name: Test Ansible SSH Role
+        # uses: Jakuje/check-ansible-action@main
+        uses: ./
+        with:
+          image: ${{ matrix.os_image }}
+          group: local
+          hosts: localhost
+          targets: "ssh/tests/tests_*.yml"
+
       - name: Checkout SSHD role code
         uses: actions/checkout@v4
         with:
