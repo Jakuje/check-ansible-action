@@ -11,6 +11,8 @@ jobs:
           - fedora:latest
           - quay.io/centos/centos:stream8
           - quay.io/centos/centos:stream10
+          - ubuntu:latest
+          - ubuntu:26.04
           - ubuntu:24.04
           - ubuntu:22.04
           - debian:latest
